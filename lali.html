@@ -1,67 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Dia Dos Namorados</title>
-
     <style>
-        body{
+        /* Estilo geral */
+        body {
+            margin: 0;
+            padding: 0;
             background-color: red;
-        }
-
-        .painel{
-            margin: auto;
-            background-color: white;
-            width: 500px;
-            height: 500px;
-            border-radius: 20px;
-            text-align: center;
-            padding-top: 50px;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
-        #sim{
+
+        .painel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            background-color: white;
+            width: 80%;
+            max-width: 500px;
+            height: auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do botão "Sim" */
+        #sim {
             height: 40px;
-            width: 60px;
+            width: 100px;
             background-color: red;
             border: 2px solid white;
             border-radius: 10px;
             color: white;
-            margin-left: -50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
-        #nao{
+
+        /* Estilo do botão "Não" */
+        #nao {
             position: absolute;
             height: 40px;
-            width: 60px;
+            width: 100px;
             background-color: red;
             border: 2px solid white;
             border-radius: 10px;
             color: white;
-            margin-left: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
         }
 
-    </style>
+        /* Adicionando media query para telas menores */
+        @media (max-width: 600px) {
+            .painel {
+                width: 90%;
+                padding: 20px;
+            }
 
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            #sim, #nao {
+                width: 80px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <div class="painel">
-        <h1> Feliz Dia 8 </h1>
+        <h1>Feliz Dia 8</h1>
 
-        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="">
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="Gif fofo">
 
-        <h2>Aceita namorar comigo? </h2>
-        
+        <h2>Aceita namorar comigo?</h2>
 
-        <a href="https://www.youtube.com/watch?v=sevet4zjf7Y"><button id="sim" > Sim! </button></a>
-        <button onmouseover="fuja()" id="nao"> Não! </button>
-        
+        <a href="https://www.youtube.com/watch?v=sevet4zjf7Y">
+            <button id="sim">Sim!</button>
+        </a>
+
+        <button onmouseover="fuja()" id="nao">Não!</button>
     </div>
 
     <script>
-        function fuja(){
-            var botaoNao = document.getElementById("nao")
+        function fuja() {
+            var botaoNao = document.getElementById("nao");
 
             var larguraJanela = window.innerWidth;
             var alturaJanela = window.innerHeight;
@@ -74,13 +128,8 @@
 
             botaoNao.style.left = aleatorioX + "px";
             botaoNao.style.top = aleatorioY + "px";
-
-
         }
     </script>
 
-
-
-    
 </body>
 </html>
